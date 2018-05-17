@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
-import About from './views/About.vue'
+const Home = () => import('./views/Home.vue')
+const Categories = () => import('./views/Categories.vue')
+const About = () => import('./views/About.vue')
 
 Vue.use(Router)
 
@@ -11,6 +12,11 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/categories',
+      name: 'Categories',
+      component: Categories
     },
     {
       path: '/about',
