@@ -10,8 +10,10 @@
     <h1>12221414124</h1>
     <h1>12221414124</h1>
     <h1>12221414124</h1>
-    <h1>12221414124</h1>  
-    <HelloWorld></HelloWorld>
+    <h1>12221414124</h1>
+    <vue-lazy-component>
+      <HelloWorld></HelloWorld>
+    </vue-lazy-component>
   </div>
 </template>
 

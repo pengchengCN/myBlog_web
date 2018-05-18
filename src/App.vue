@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div class="header">
-      <Menu :menuData="menuData"></Menu>
+      <vue-lazy-component>
+        <Menu :menuData="menuData"></Menu>
+      </vue-lazy-component>
     </div>
     <router-view style="padding-top: 60px" />
   </div>
@@ -60,6 +62,7 @@ export default {
 }
 .header {
   position: fixed;
+  z-index: 9999;
   height: 60px;
   width: 100%;
   color: #333;
