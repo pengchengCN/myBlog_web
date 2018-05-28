@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 const Home = () => import('./views/Home.vue')
-const Categories = () => import('./views/Categories.vue')
+const HomeList = () => import('./views/HomeList.vue')
+const Category = () => import('./views/Category.vue')
+const Tag = () => import('./views/Tag.vue')
 const About = () => import('./views/About.vue')
 
 Vue.use(Router)
@@ -11,12 +13,26 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
-    },
-    {
-      path: '/categories',
-      name: 'Categories',
-      component: Categories
+      component: Home,
+      redirect: 'homeList',   // 重定向
+      children: [
+        {
+          path: '/',
+          name: 'homeList',
+          component: HomeList,
+        },
+        {
+          path: 'category/:id',
+          name: 'category',
+          component: Category,
+        },
+        {
+          path: 'tag/:id',
+          name: 'tag',
+          component: Tag,
+        },
+        
+      ]
     },
     {
       path: '/about',

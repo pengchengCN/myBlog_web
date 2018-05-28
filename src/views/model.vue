@@ -1,11 +1,11 @@
 <template>
-  <div class="home">
-    <h1>关于内容</h1>
+  <div>
+    vue模板
   </div>
 </template>
 <script>
   export default {
-    name: 'about',
+    name: 'model',
     props: {
     },
     data () {
@@ -23,4 +23,3 @@
 
 <style lang="scss">
 </style>
-

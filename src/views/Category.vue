@@ -1,11 +1,12 @@
 <template>
-  <div class="home">
-    <h1>关于内容</h1>
+  <div class="category">
+    <h1>类型内容</h1>
   </div>
 </template>
+
 <script>
   export default {
-    name: 'about',
+    name: 'category',
     props: {
     },
     data () {
@@ -23,4 +24,3 @@
 
 <style lang="scss">
 </style>
-

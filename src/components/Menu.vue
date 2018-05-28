@@ -34,6 +34,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.menu {
+  margin: 0 auto;
+  width: 1200px;
+}
 .menuLi {
   display: inline-block;
   padding: 0 30px;

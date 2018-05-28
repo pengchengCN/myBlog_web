@@ -1,11 +1,12 @@
 <template>
-  <div class="home">
-    <h1>关于内容</h1>
+  <div class="homeList">
+    <h1>列表内容</h1>
   </div>
 </template>
+
 <script>
   export default {
-    name: 'about',
+    name: 'homeList',
     props: {
     },
     data () {
@@ -22,5 +23,9 @@
 </script>
 
 <style lang="scss">
+.homeList {
+  background-color: #fff
+}
 </style>
+
 

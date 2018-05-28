@@ -1,16 +1,15 @@
 <template>
   <div id="app">
     <div class="header">
-      <vue-lazy-component>
-        <Menu :menuData="menuData"></Menu>
-      </vue-lazy-component>
+      <Menu :menuData="menuData"></Menu>
     </div>
-    <router-view style="padding-top: 60px" />
+    <router-view />
   </div>
 </template>
 
 <script>
 import Menu from '@/components/Menu.vue'
+
 export default {
   name: 'app',
   components: {
@@ -25,17 +24,11 @@ export default {
         },
         {
           name: '分类',
-          href: '/categories',
-          children: [
-            {
-              name: '文章',
-              href: '/article'
-            },
-            {
-              name: '照片',
-              href: '/photo'
-            }
-          ]
+          href: '/category/a'
+        },
+        {
+          name: '标签',
+          href: '/tag/a'
         },
         {
           name: '关于',
@@ -43,6 +36,12 @@ export default {
         }
       ]
     }
+  },
+  watch: {
+  },
+  methods: {
+  },
+  mounted () {
   }
 }
 </script>
@@ -57,8 +56,8 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
+  background-color: #f2f2f2;
 }
 .header {
   position: fixed;
@@ -68,5 +67,16 @@ export default {
   color: #333;
   text-align: center;
   background-color: #B3C0D1;
+}
+.home {
+  padding-top: 160px;
+  margin: 0 auto;
+  width: 1200px;
+  &::after {
+    content:""; 
+    display:block; 
+    height:0; 
+    clear: both;
+  }
 }
 </style>
