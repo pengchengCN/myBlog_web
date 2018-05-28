@@ -4,6 +4,7 @@ const Home = () => import('./views/Home.vue')
 const HomeList = () => import('./views/HomeList.vue')
 const Category = () => import('./views/Category.vue')
 const Tag = () => import('./views/Tag.vue')
+const Life = () => import('./views/Life.vue')
 const About = () => import('./views/About.vue')
 
 Vue.use(Router)
@@ -33,6 +34,11 @@ export default new Router({
         },
         
       ]
+    },
+    {
+      path: '/life',
+      name: 'life',
+      component: Life
     },
     {
       path: '/about',

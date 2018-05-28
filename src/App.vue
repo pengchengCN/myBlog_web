@@ -1,47 +1,37 @@
 <template>
   <div id="app">
     <div class="header">
-      <Menu :menuData="menuData"></Menu>
+      <MenuComponent :menuData="menuList"></MenuComponent>
     </div>
     <router-view />
   </div>
 </template>
 
 <script>
-import Menu from '@/components/Menu.vue'
+import dao from './common/dao.js'
+import MenuComponent from '@/components/MenuComponent.vue'
 
 export default {
   name: 'app',
   components: {
-    Menu
+    MenuComponent
   },
   data () {
     return {
-      menuData: [
-        {
-          name: '首页',
-          href: '/'
-        },
-        {
-          name: '分类',
-          href: '/category/a'
-        },
-        {
-          name: '标签',
-          href: '/tag/a'
-        },
-        {
-          name: '关于',
-          href: '/about'
-        }
-      ]
+      menuList: []
     }
   },
   watch: {
   },
   methods: {
+    async initMenu () {
+      let {data: { menuList } } = await dao.menuList()
+      this.menuList = menuList
+      console.log(menuList)
+    }
   },
   mounted () {
+    this.initMenu()
   }
 }
 </script>

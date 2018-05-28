@@ -2,13 +2,13 @@
   <div class="menu">
     <ul>
       <li 
-        v-for="(menu, index) in menuData" 
-        :key = "menu.href" 
+        v-for="(item, index) in menuData" 
+        :key = "item.href" 
         :index="index"
         class="menuLi"
-        @click="firstMenuClick(menu)"
+        @click="firstMenuClick(item)"
         >
-        {{menu.name}}
+        {{item.name}}
       </li>
     </ul>
   </div>
@@ -16,15 +16,15 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "menuComponent",
   props: {
     menuData: Array
   },
   watch: {},
   computed: {},
   methods: {
-    firstMenuClick (menu) {
-      this.$router.push(menu.href)
+    firstMenuClick (item) {
+      this.$router.push(item.href)
     }
   },
   mounted() {
