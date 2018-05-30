@@ -27,6 +27,7 @@ class ProCfg extends CfgBase {
 // process.env.NODE_ENV 当前坏境    ProCfg 生产、DevCfg 开发
 let CFG = process.env.NODE_ENV === 'prod' ? new ProCfg() : new DevCfg()
 CFG.BASEURL = `${CFG.PRO}//${CFG.IP}:${CFG.PORT}/${CFG.URLPRE}`
-console.log(CFG.BASEURL)
+window.nodeHref = CFG.BASEURL
+console.log(window.nodeHref)
 
 export default CFG

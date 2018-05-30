@@ -3,8 +3,7 @@
     <ul>
       <li 
         v-for="(item, index) in menuData" 
-        :key = "item.href" 
-        :index="index"
+        :key = "index" 
         class="menuLi"
         @click="firstMenuClick(item)"
         >
@@ -24,7 +23,10 @@ export default {
   computed: {},
   methods: {
     firstMenuClick (item) {
-      this.$router.push(item.href)
+      if (item.name === '首页') return this.$router.push(`/`)
+      if (item.name === '生活') return this.$router.push(`/life`)
+      if (item.name === '关于') return this.$router.push(`/about`)
+      this.$router.push(`/category/${item.menu_id}`)
     }
   },
   mounted() {

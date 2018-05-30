@@ -9,6 +9,7 @@
 
 <script>
 import dao from './common/dao.js'
+import { mapGetters, mapActions } from "vuex"
 import MenuComponent from '@/components/MenuComponent.vue'
 
 export default {
@@ -23,15 +24,26 @@ export default {
   },
   watch: {
   },
+  computed: {
+    ...mapGetters(["getCategoryList", "getLabelList"])
+  },
   methods: {
-    async initMenu () {
+    ...mapActions(["setCategoryList", "setLabelList"]),
+    async initApp () {
+      // 获取菜单
       let {data: { menuList } } = await dao.menuList()
-      this.menuList = menuList
-      console.log(menuList)
+      this.menuList = menuList || []
+      console.log('menuList=', menuList)
+      // 获取全部分类
+      let {data: { categoryList } } = await dao.categoryList()
+      this.setCategoryList(categoryList)
+      // 获取全部标签
+      let {data: { labelList } } = await dao.labelList()
+      this.setLabelList(labelList)
     }
   },
   mounted () {
-    this.initMenu()
+    this.initApp()
   }
 }
 </script>
@@ -41,6 +53,15 @@ export default {
 * {
   margin:0;
   padding:0
+}
+ul, li {
+  list-style-type: none
+}
+a {
+  color: #000;
+  text-decoration: none;
+  transition: all 0.5s ease;
+  letter-spacing: 0.02em;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

@@ -4,6 +4,7 @@ const Home = () => import('./views/Home.vue')
 const HomeList = () => import('./views/HomeList.vue')
 const Category = () => import('./views/Category.vue')
 const Tag = () => import('./views/Tag.vue')
+const Detail = () => import('./views/Detail.vue')
 const Life = () => import('./views/Life.vue')
 const About = () => import('./views/About.vue')
 
@@ -32,7 +33,11 @@ export default new Router({
           name: 'tag',
           component: Tag,
         },
-        
+        {
+          path: 'detail/:id',
+          name: 'detail',
+          component: Detail,
+        }
       ]
     },
     {

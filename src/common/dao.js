@@ -19,9 +19,28 @@ class Dao {
   apiGet (key) {
     return instance.get(key)
   }
+  apiPost (key, body) {
+    return instance.post(key, body)
+  }
   // 获取菜单
   menuList () {
     return this.apiGet('findMenuAll')
+  }
+  // 获取全部分类
+  categoryList () {
+    return this.apiGet('categoryAll')
+  }
+  // 获取全部标签
+  labelList () {
+    return this.apiGet('labelAll')
+  }
+  // 获取全部文章
+  articleAll () {
+    return this.apiGet('articleAll')
+  }
+  // 根据分类获取文章
+  getCategoryAll (body) {
+    return this.apiPost('article/getCategory', body)
   }
 }
 const aDao = new Dao()
