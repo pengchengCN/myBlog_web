@@ -1,9 +1,11 @@
 class Util {
   // 处理文章的分类和标签
   articleList (data, catData, labData) {
+    catData = JSON.parse(JSON.stringify(catData))
+    labData = JSON.parse(JSON.stringify(labData))
     for (let x in data) {
-      let catAry = JSON.parse(data[x].category_id)
-      let labelAry = JSON.parse(data[x].label_id)
+      let catAry = data[x].category_id
+      let labelAry = data[x].label_id
       if(catAry.length !== 0) data[x].category_id = this.categoryMethod(catAry, catData)
       if(labelAry.length !== 0) data[x].label_id = this.labelMethod(labelAry, labData)
 

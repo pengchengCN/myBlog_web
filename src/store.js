@@ -26,7 +26,7 @@ export default new Vuex.Store({
   },
   // 取
   getters: {
-    getCategoryList: state => {
+     getCategoryList: (state)=>{
       return state.categoryList
     },
     getLabelList: state => {

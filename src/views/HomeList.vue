@@ -20,24 +20,29 @@ import ArticleComp from '../components/ArticleComp'
     },
     data () {
       return {
-        listData: []
+        listData: [],
+        artList:[]
       }
     },
     watch: {
+      // 'getCategoryList'() {
+      //   this.listData = util.articleList(this.artList, this.getCategoryList, this.getLabelList)
+      // }
     },
     computed: {
     ...mapGetters(["getCategoryList", "getLabelList"])
   },
     methods: {
       ...mapActions(["setCategoryList"]),
-      async articleList () {
+      async initArticleList () {
         let {data: { articleList } } = await dao.articleAll()
+        this.artList = articleList
         this.listData = util.articleList(articleList, this.getCategoryList, this.getLabelList)
         console.log('listData=', this.listData)
       }
     },
     mounted () {
-      this.articleList()
+      this.initArticleList()
     }
   }
 </script>

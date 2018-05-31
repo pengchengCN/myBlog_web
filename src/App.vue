@@ -22,6 +22,14 @@ export default {
       menuList: []
     }
   },
+  async beforeCreate () {
+    // 获取全部分类
+    let {data: { categoryList } } = await dao.categoryList()
+    this.setCategoryList(categoryList)
+    // 获取全部标签
+    let {data: { labelList } } = await dao.labelList()
+    this.setLabelList(labelList)
+  },
   watch: {
   },
   computed: {
@@ -33,13 +41,6 @@ export default {
       // 获取菜单
       let {data: { menuList } } = await dao.menuList()
       this.menuList = menuList || []
-      console.log('menuList=', menuList)
-      // 获取全部分类
-      let {data: { categoryList } } = await dao.categoryList()
-      this.setCategoryList(categoryList)
-      // 获取全部标签
-      let {data: { labelList } } = await dao.labelList()
-      this.setLabelList(labelList)
     }
   },
   mounted () {
